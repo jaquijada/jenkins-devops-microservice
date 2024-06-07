@@ -18,19 +18,20 @@ pipeline {
 			}
 		}
 
-		post {
-			always {
-				echo "I always run"
-			}
-			success {
-				echo "I run on success"
-			}
-			failure {
-				echo "I run on failure"
-			}
-			changed {
-				echo "I run on changed"
-			}
+	}
+
+	post {
+		always {
+			echo "I always run"
+		}
+		success {
+			echo "I run on success"
+		}
+		failure {
+			echo "I run on failure"
+		}
+		changed {
+			echo "I run on changed"
 		}
 	} 
 }
