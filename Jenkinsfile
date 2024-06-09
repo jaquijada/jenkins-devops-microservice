@@ -1,9 +1,9 @@
 // DECLERATIVE
 pipeline {
-	agent any
+	//agent any
 	//agent { docker { image "maven:3.6.3" } }
 	agent { docker { image "eclipse/centos_jdk8" } }
-	
+
 	environment {
 		dockerHome = tool "docker"
 		mavenHome = tool "maven"
