@@ -2,7 +2,8 @@
 pipeline {
 	//agent any
 	//agent { docker { image "maven:3.6.3" } }
-	agent { docker { image "eclipse/centos_jdk8" } }
+	//agent { docker { image "eclipse/centos_jdk8" } }
+	agent { label "ec2-jdk8"}
 
 	environment {
 		dockerHome = tool "docker"
@@ -15,7 +16,7 @@ pipeline {
 			steps {
 				echo "Checkout"
 				sh 'mvn --version'
-				//sh 'docker --version'
+				sh 'docker --version'
 				echo "$PATH"
 				echo "Build Number.  : $env.BUILD_NUMBER"
 				echo "Build Id.      : $env.BUILD_ID"
