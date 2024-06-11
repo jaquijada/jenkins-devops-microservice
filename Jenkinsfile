@@ -61,7 +61,8 @@ pipeline {
 		stage('Push Docker Image') {
 			steps {
 				script {
-					docker.withRegistry("https://365821728828.dkr.ecr.us-west-2.amazonaws.com", "aws-ecr") {
+					//docker.withRegistry("https://365821728828.dkr.ecr.us-west-2.amazonaws.com", "aws-ecr") {
+					docker.withRegistry("https://365821728828.dkr.ecr.us-west-2.amazonaws.com") {
 						dockerImage.push("${env.BUILD_TAG}")
 						dockerImage.push("latest")
 					}
