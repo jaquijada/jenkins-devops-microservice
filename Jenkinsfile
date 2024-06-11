@@ -50,6 +50,12 @@ pipeline {
 			}
 		}
 
+		stage('Authenticate Docker to AWS ECR registry') {
+			steps {
+				sh "aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 365821728828.dkr.ecr.us-west-2.amazonaws.com"
+			}
+		}
+
 		stage('Build Docker Image') {
 			steps {
 				script {
